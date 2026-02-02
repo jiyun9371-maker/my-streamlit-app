@@ -3,6 +3,12 @@ from openai import OpenAI
 
 st.title("🤖 나의 AI 챗봇")
 
+# 기분 상태 선택 UI
+st.subheader("오늘의 기분을 선택해주세요")
+mood_options = ["😊 행복", "😌 평온", "😐 보통", "😔 우울", "😡 화남"]
+selected_mood = st.radio("현재 기분 상태", mood_options, horizontal=True)
+st.session_state["selected_mood"] = selected_mood
+
 # 사이드바에서 API Key 입력
 api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 
